@@ -105,7 +105,7 @@ module CPU (clock);
       for (i = 0; i <= 1023; i = i + 1) IMemory[i] = 0;
       for (i = 0; i <= 1023; i = i + 1) DMemory[i] = 0;
 
-      fd = $fopen("C:/Users/Natnael/Documents/GitHub/CSCI_4203_Spring_2017_Lab2_Public/regs.dat","r");
+      fd = $fopen("regs.dat","r");
       i = 0; 
       while (!$feof(fd)) begin
         code = $fscanf(fd, "%b\n", str);
@@ -114,7 +114,7 @@ module CPU (clock);
       end
 
       i = 0; 
-      fd = $fopen("C:/Users/Natnael/Documents/GitHub/CSCI_4203_Spring_2017_Lab2_Public/dmem.dat","r");
+      fd = $fopen("dmem.dat","r");
       while (!$feof(fd)) begin
         code = $fscanf(fd, "%b\n", str);
         DMemory[i] = str;
@@ -122,7 +122,7 @@ module CPU (clock);
       end
 
       i = 0; 
-      fd = $fopen("C:/Users/Natnael/Documents/GitHub/CSCI_4203_Spring_2017_Lab2_Public/imem.dat","r");
+      fd = $fopen("imem.dat","r");
       while (!$feof(fd)) 
        begin
         code = $fscanf(fd, "%b\n", str);
@@ -132,7 +132,7 @@ module CPU (clock);
 
       #396
       i = 0; 
-      fd = $fopen("C:/Users/Natnael/Documents/GitHub/CSCI_4203_Spring_2017_Lab2_Public/mem_result.dat","w" ); //open memory result file
+      fd = $fopen("mem_result.dat","w" ); //open memory result file
       while (i < 32)
        begin
         str = DMemory[i];  //dump the first 32 memory values
@@ -142,7 +142,7 @@ module CPU (clock);
       $fclose(fd);
 
       i = 0; 
-      fd = $fopen("C:/Users/Natnael/Documents/GitHub/CSCI_4203_Spring_2017_Lab2_Public/regs_result.dat","w" ); //open register result file
+      fd = $fopen("regs_result.dat","w" ); //open register result file
       while(i < 32)
        begin
         str = Regs[i];  //dump the register values
